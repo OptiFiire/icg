@@ -17,9 +17,10 @@ export default function QuestionsPage() {
         const parsedMessage = JSON.parse(savedValue);
         const patchedMessage = JSON.parse(parsedMessage.message.slice(7, -4));
         const sortedMessage = Object.entries(patchedMessage).sort((a, b) => b[1] - a[1]);
-        localStorage.removeItem("results")
+        localStorage.removeItem("result")
         setData(sortedMessage);
       } catch (error) {
+        console.log(error)
         router.push("/questions")
       }
     }
